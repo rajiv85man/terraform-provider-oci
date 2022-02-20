@@ -9,6 +9,12 @@ read -p "Press enter to continue"
 #sudo yum -y upgrade
 #sudo yum -y update
 
+#Install yum-config-manager to manage your repositories.
+sudo yum install -y yum-utils
+
+#Use yum-config-manager to add the official HashiCorp Linux repository.
+sudo yum-config-manager --add-repo https://rpm.releases.hashicorp.com/RHEL/hashicorp.repo
+
 sudo yum -y install terraform python-oci-cli bzip2 cpio zip unzip dos2unix dialog curl jq git golang iputils wget screen tmux byobu elinks kubectl
 
 yes "y" | ssh-keygen -N "" -f ~/.ssh/id_rsa
