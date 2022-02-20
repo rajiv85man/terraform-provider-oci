@@ -32,9 +32,9 @@ openssl rsa -in ~/.oci/oci_api_key.pem -pubout -outform DER 2>/dev/null | openss
 chmod 0600 ~/.oci/oci_api_key_public.pem
 chmod 0600 ~/.oci/oci_api_key_fingerprint
 
-mkdir -p ocitf
+mkdir -p tf
 
-command cat >~/ocitf/provider.tf <<'EOF'
+command cat >~/tf/provider.tf <<'EOF'
 variable "tenancy_ocid" {}
 variable "user_ocid" {}
 variable "fingerprint" {}
@@ -61,7 +61,7 @@ output "ADprint" {
 }
 EOF
 
-command cat>~/ocitf/env-vars <<'EOF'
+command cat>~/tf/env-vars <<'EOF'
 export TF_VAR_tenancy_ocid=<tenancy_OCID>
 export TF_VAR_user_ocid=<api.user_OCID>
 export TF_VAR_compartment_ocid=<Demo_Compartment_OCID>
